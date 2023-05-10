@@ -1,22 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package bankingapplication1;
 
 import java.util.Random;
 import java.util.Scanner;
 
-/**
- *
- * @author Student
- */
+
 public class BankingApplication1 {
 
     public static void main(String[] args) {
         int option = 0, number;
         String name;
-        double balance;
+        double balance,amount;
         Bank bank = new Bank();
         Account account;
         Scanner scan = new Scanner(System.in);
@@ -37,7 +31,7 @@ public class BankingApplication1 {
             
             switch(option){
             case 1:
-                System.out.println("Hello");
+                bank.listAccount();
                 break;
             case 2:
                 System.out.print("Enter Account Name: ");
@@ -49,9 +43,26 @@ public class BankingApplication1 {
                 bank.openAccount(account);
                 break;
             case 3:
-                System.out.println("");
+                System.out.print("Enter Account Number: ");
+                number = scan.nextInt();
+                bank.closeAccount(number);
                 break;
-        }
+            case 4:
+                System.out.print("Enter Account Number: ");
+                number = scan.nextInt();                            
+                System.out.print("Enter Amount: ");
+                amount = scan.nextDouble();
+                bank.depositMoney(number, amount);
+                break;
+            case 5:
+                System.out.print("Enter Account Number: ");
+                number = scan.nextInt();                            
+                System.out.print("Enter Amount: ");
+                amount = scan.nextDouble();
+                bank.withdrawMoney(number, amount);
+                break;
+            }
+            
             System.out.println();
         }
         
